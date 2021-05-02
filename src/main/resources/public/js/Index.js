@@ -8,7 +8,7 @@ const MainApp = function() {
       alert("다시 입력해주세요 :)");
       return this.constructor();
     }
-    fetch(`http://localhost:8080/api/room`, {
+    fetch(`api/room`, {
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({name: roomName})
@@ -27,7 +27,7 @@ const MainApp = function() {
   });
 
   this.constructor = function() {
-    fetch(`http://localhost:8080/api/room/all`)
+    fetch(`api/room/all`)
     .then(response => response.json())
     .then(responseJson => {
       const rooms = responseJson.rooms;
